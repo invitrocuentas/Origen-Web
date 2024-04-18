@@ -1,14 +1,24 @@
+let lastScrollTop = 0;
+
 function onScrollBarHeader() {
     const headerBg = document.getElementById("header");
     const letters = document.querySelectorAll(".options-nav");
     const container = document.getElementById("container-nav");
-    headerBg.style.backgroundColor = "#FFFFFF";
-    container.style.marginBottom = "3px" 
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    letters.forEach(function(letter) {
-        letter.style.color = '#12448D'; // Cambia el color a rojo (puedes cambiar a tu preferencia)
-    });
-    console.log('Color Cambiado')
+    if (scrollTop > lastScrollTop) {
+        headerBg.style.backgroundColor = "#FFFFFF";
+        letters.forEach(function(letter) {
+            letter.style.color = '#12448D';
+        });
+    } else {
+        if (scrollTop <= 20) {
+            headerBg.style.backgroundColor = "transparent";
+            letters.forEach(function(letter) {
+                letter.style.color = '#FFFFFF';
+            });
+        }
+    }
+    lastScrollTop = scrollTop;
 }
-
 window.addEventListener('scroll', onScrollBarHeader);
