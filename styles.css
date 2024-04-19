@@ -15,13 +15,23 @@
 }
 
 @font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url(/assets/fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
   font-family: 'Poppins-Bold';
   src: url(/assets/fonts/Poppins-Bold.ttf);
 }
 
 @font-face {
-  font-family: 'Poppins-SemiBold';
-  src: url(/assets/fonts/Poppins-SemiBold.ttf);
+  font-family: 'Poppins-ExtraBold';
+  src: url(/assets/fonts/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Poppins-Black';
+  src: url(/assets/fonts/Poppins-Black.ttf);
 }
 
 :root {
@@ -30,6 +40,7 @@
   --lightBlueOrigin: #07A3D9;
   --redOrigin: #DE0B17;
   --purpleOrigin: #CDE1FF;
+  --ultraLightBlueOrigin: #CFEBFF;
 }
 
 * {
@@ -52,6 +63,7 @@
   margin-top: 30px;
   cursor: pointer;
   z-index: 3;
+  transition: .3s;
 }
 
 .btn:hover {
@@ -61,23 +73,27 @@
 /* Text Colors */
 
 .blueO {
-  color: #12448D;
+  color: var(--blueOrigin);
 }
 
 .lightBlueO {
-  color: #07A3D9;
+  color: var(--lightBlueOrigin);
 }
 
 .redO {
-  color: #DE0B17;
+  color: var(--redOrigin);
 }
 
 .purpleO {
-  color: #CDE1FF;
+  color: var(----purpleOrigin);
 }
 
 .ultraLightBlueOBg {
-  background-color: #cfebff;
+  background-color: var(--ultraLightBlueOrigin);
+}
+
+.purpleOBg {
+  background-color: var(----purpleOrigin);
 }
 
 .linearGradientBg1 {
@@ -88,6 +104,11 @@
 .linearGradientBg2 {
   background: rgb(229, 244, 255);
   background: linear-gradient(176deg, rgba(229, 244, 255, 1) 0%, rgba(207, 235, 255, 1) 100%);
+}
+
+.linearGradientBg3 {
+  background: rgb(16, 64, 136);
+  background: linear-gradient(180deg, rgba(16, 64, 136, 1) 0%, rgba(1, 46, 110, 1) 35%);
 }
 
 /* Font Family */
@@ -107,13 +128,23 @@
   font-weight: normal;
 }
 
+.poppins-semibold {
+  font-family: 'Poppins-SemiBold';
+  font-weight: normal;
+}
+
 .poppins-bold {
   font-family: 'Poppins-Bold';
   font-weight: normal;
 }
 
-.poppins-semibold {
-  font-family: 'Poppins-SemiBold';
+.poppins-extrabold {
+  font-family: 'Poppins-ExtraBold';
+  font-weight: normal;
+}
+
+.poppins-black {
+  font-family: 'Poppins-Black';
   font-weight: normal;
 }
 
@@ -195,12 +226,35 @@
 
 /* Utils */
 
+.card-purple {
+  width: 80%;
+  background-color: var(--purpleOrigin);
+  border-radius: 25px;
+  padding: 25px 25px;
+}
+
 .w-100 {
   width: 100%;
 }
 
+.w-70 {
+  width: 70%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
 .w-50 {
   width: 50%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.w-30 {
+width: 30%;
 }
 
 .h-100 {
@@ -262,7 +316,6 @@ nav {
 
 ul {
   display: flex;
-  margin-inline: 8px;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -271,12 +324,11 @@ ul {
   align-items: center;
 }
 
-li {
-  padding-inline: 30px;
-  float: left;
+.nav-li {
+  width: 150px;  
 }
 
-li a {
+.nav-li a {
   display: block;
   color: white;
   text-align: center;
@@ -285,7 +337,7 @@ li a {
   text-decoration: none;
 }
 
-a.options-nav {
+.nav-li a.options-nav {
   position: relative;
   display: inline-block;
   transition: color .5s;
@@ -293,7 +345,7 @@ a.options-nav {
   padding: 6px 20px;
 }
 
-a.options-nav::before {
+.nav-li a.options-nav::before {
   content: attr(data-hover);
   position: absolute;
   top: 0;
@@ -304,12 +356,12 @@ a.options-nav::before {
   border-radius: 5px;
   z-index: -1;
   transform: scaleX(0);
-  transition: transform .3s;
+  transition: transform .2s;
   opacity: 0;
 }
 
 a.options-nav:hover {
-  color: #fff;
+  color: #fff !important;
   font-family: 'Poppins-Bold';
 }
 
@@ -318,13 +370,13 @@ a.options-nav:hover::before {
   opacity: 1;
 }
 
-
 .contacto {
+  text-decoration: none;
   background-color: var(--lightBlueOrigin);
   border-radius: 5px;
-  width: 120px;
-  padding: 4px 0px;
+  padding: 6px 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+  transition: .3s;
 }
 
 .contacto:hover {
@@ -339,12 +391,25 @@ li img:hover {
   cursor: pointer;
 }
 
+.footer-li {
+  display: flex;
+}
+
+.footer-li a {
+  transition: .3s;
+}
+
+.footer-li a:hover {
+  cursor: pointer;
+  color: var(--redOrigin);
+}
+
 .main-view {
   position: relative;
-  background-image: url(/assets/img/group_7645.webp);
+  background-image: url(/assets/img/rectangle_19_3x.webp);
   background-size: cover;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .rocks {
@@ -361,9 +426,15 @@ li img:hover {
 }
 
 .glue {
-  height: 120%;
-  right: 0;
+  width: 100%;
+  height: 100%;
   margin-bottom: 25%;
+}
+
+.glue-container {
+  width: 800px;
+  object-fit: cover;
+  right: 0px;
 }
 
 .bottle {
@@ -384,7 +455,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  transition: background-color 0.3s ease;
+  transition: background-color .3s ease;
   z-index: 5;
 }
 
@@ -442,4 +513,16 @@ header {
 .radial-white {
   background: rgb(255, 255, 255);
   background: radial-gradient(circle, rgba(255, 255, 255, 0.9640231092436975) 50%, rgba(255, 255, 255, 0.3337710084033614) 99%);
+}
+
+footer {
+  height: 600px;
+  background-image: url(/assets/img/mountains_footer.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+path.icon:hover {
+  fill: #000;
 }
